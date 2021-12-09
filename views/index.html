@@ -6,15 +6,25 @@
     <link rel="stylesheet" href="/css/style.css">
   </head>
   <body>
+    <input type="checkbox" id="switchInput" />
     <div class="wrapper">
       <div class="user-container">
-        <label for="nickname">대화명</label>
-        <input type="text" id="nickname">
+        <label for="nickname">닉네임 :&nbsp;</label>
+        <input type="text" id="nickname" maxlength="3" placeholder="최대3글자">
+          <label class="switch" for="switchInput"><div class="circle"></div></label>
+          <div class="section">
+            <div class="light">
+              라이트모드
+            </div>
+            <div class="dark">
+              &nbsp&nbsp&nbsp다크모드
+            </div>
+          </div>
       </div>
       <div class="display-container">
         <ul class="chatting-list">
           <li class="sent">
-            
+
           </li>
           <li class="received">
 
@@ -23,7 +33,7 @@
       </div>
       <div class="input-container">
         <span>
-          <input type="text" class="chatting-input">
+          <input type="text" class="chatting-input" placeholder="전송하실 내용을 입력하세요">
           <button class="send-button">전송</button>
         </span>
       </div>

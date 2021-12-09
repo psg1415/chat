@@ -14,25 +14,29 @@ html, body{
 }
 .user-container{
   background: #a9bdce;
-  flex: 1;
+  flex: 0.5;
   display: flex;
   justify-content:  flex-start;
   align-items: center;
+  justify-content: right;
   padding: 0.5rem;
 }
 .user-container label{
   font-size: 14px;
-  margin-right: 1rem;
 }
 .user-container input{
   border-radius: 3px;
   border: none;
   height: 100%;
+  width: 80px;
 }
 .display-container{
   flex: 12;
   background: #b2c7d9;
   overflow-y: scroll;
+}
+.display-container::-webkit-scrollbar{
+  display: none;
 }
 .input-container{
   flex: 1;
@@ -75,26 +79,30 @@ html, body{
   justify-content: center;
   flex: 1;
 }
+
 .profile .user{
-  font-size: 10px;
-  margin-bottom: 0.3rem;
-}
-.profile .image{
+  border: 1px solid black;
   border-radius: 50%;
   object-fit: cover;
   width: 50px;
   height: 50px;
+  background-color: white;
+  text-align: center;
+  font-weight: bold;
+}
+.profile .user .name{
+  padding: 13.5px 0;
 }
 .message{
   border-radius: 5px;
   padding: 0.5rem;
   font-size: 12px;
-  margin: 0 5px;
+  margin: 0 5px 8px;
   flex: 7;
 }
 .time{
   font-size: 10px;
-  margin: 0 5px;
+  margin: 0 5px 8px;
 }
 .sent{
   flex-direction: row-reverse;
@@ -105,4 +113,74 @@ html, body{
 }
 .received .message{
   background: #fff;
+}
+#nickname{
+  right: 100%;
+  margin-right: 30%;
+}
+
+
+#switchInput{
+  display: none;
+}
+.user-container .section{
+  padding-right: 80px;
+}
+.switch {
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 35px;
+  cursor: pointer;
+}
+.circle {
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  transition: transform 0.5s;
+  cursor: pointer;
+}
+
+.dark {
+  display: none;
+}
+#switchInput:checked ~ .wrapper .section .dark {
+  display: block;
+}
+#switchInput:checked ~ .wrapper .section .light {
+  display: none;
+}
+#switchInput:checked ~ .wrapper {
+  background: #6e6e6e;
+  color: white;
+}
+#switchInput:checked ~ .wrapper .user-container{
+  background: #222222;
+}
+#switchInput:checked ~ .wrapper .display-container{
+  background: #282828;
+}
+#switchInput:checked ~ .wrapper .display-container .message{
+  background-color: #404040;
+}
+#switchInput:checked ~ .wrapper .user{
+  background-color: #404040;
+  border: none;
+}
+#switchInput:checked ~ .wrapper .switch{
+  background-color: #404040;
+}
+#switchInput:checked ~ .wrapper .send-button{
+  background-color: #404040;
+  color: white;
+}
+#switchInput:checked + .switch .circle {
+  transform: translate(22px, -50%);
 }
